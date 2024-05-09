@@ -26,6 +26,11 @@
         <a class="nav-link" href="{{ route('attendances.index') }}"><i class="fas fa-business-time"></i>
           <span>Attendance</span></a>
       </li>
+      <li class="menu-header">Permission Employee</li>
+      <li class="{{ Request::is('permission') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('permission.index') }}"><i class="fas fa-truck-fast"></i>
+          <span>Permission</span></a>
+      </li>
       {{-- <li class="nav-item dropdown {{ $type_menu === 'dashboard' ? 'active' : '' }}">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
         <ul class="dropdown-menu">
