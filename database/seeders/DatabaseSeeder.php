@@ -22,5 +22,16 @@ class DatabaseSeeder extends Seeder
             'email' => 'faiz@fic16.com',
             'password' => Hash::make('orakreti'),
         ]);
+
+        \App\Models\Company::create([
+            'name' => 'PT. Pencari Cinta Sejati',
+            'email' => 'admin@fic16.com',
+            'address' => 'Jl. Jejer Kauman No 2, Pecangaan Jepara',
+            'latitude' => '-6.6905064492538395',
+            'longitude' => '110.70600715918275',
+            'radius_km' => '0.5',
+            'time_in' => '07.10',
+            'time_out' => '13.10'
+        ]);
     }
 }
