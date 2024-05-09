@@ -21,6 +21,11 @@
         <a class="nav-link" href="{{ route('companies.index') }}"><i class="fas fa-building"></i>
           <span>Company</span></a>
       </li>
+      <li class="menu-header">Presence Data</li>
+      <li class="{{ Request::is('attendances') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('attendances.index') }}"><i class="fas fa-business-time"></i>
+          <span>Attendance</span></a>
+      </li>
       {{-- <li class="nav-item dropdown {{ $type_menu === 'dashboard' ? 'active' : '' }}">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
         <ul class="dropdown-menu">

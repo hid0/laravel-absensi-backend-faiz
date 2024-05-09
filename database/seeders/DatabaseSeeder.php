@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'id' => uuid_create(),
             'name' => 'Faiz Hidayatulloh',
             'email' => 'faiz@fic16.com',
+            'phone' => '089671891052',
             'password' => Hash::make('orakreti'),
         ]);
 
@@ -33,5 +34,7 @@ class DatabaseSeeder extends Seeder
             'time_in' => '07.10',
             'time_out' => '13.10'
         ]);
+
+        $this->call([AttendanceSeeder::class,]);
     }
 }
