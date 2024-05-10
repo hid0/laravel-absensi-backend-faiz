@@ -8,3 +8,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::post('/login', [\App\Http\Controllers\Api\AuthController::class, 'login'])->name('login.api');
+
+Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout'])->name('logout.api');

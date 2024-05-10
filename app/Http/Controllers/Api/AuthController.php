@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -38,5 +39,18 @@ class AuthController extends Controller
       'user'    => auth()->guard('api')->user(),
       'token'   => $token,
     ], 200);
+  }
+
+  public function logout(Request $request)
+  {
+    $removeToken = JWTAuth::invalidate(JWTAuth::getToken());
+
+    if ($removeToken) {
+      //return response JSON
+      return response()->json([
+        'success' => true,
+        'message' => 'Logout Successfully!',
+      ]);
+    }
   }
 }
