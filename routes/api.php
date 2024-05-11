@@ -10,3 +10,7 @@ Route::get('/user', function (Request $request) {
 Route::post('/login', [\App\Http\Controllers\Api\AuthController::class, 'login'])->name('login.api');
 
 Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout'])->name('logout.api');
+
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('/company', [\App\Http\Controllers\Api\CompanyController::class, 'index'])->name('company.api');
+});

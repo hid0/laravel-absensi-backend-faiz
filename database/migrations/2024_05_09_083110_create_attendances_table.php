@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade')->index()->nullable();
-            // $table->foreignUuid('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade')->index();
             $table->date('date');
             $table->time('time_in');
             $table->time('time_out')->nullable();
