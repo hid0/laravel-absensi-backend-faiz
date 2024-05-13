@@ -53,4 +53,9 @@ class AuthController extends Controller
       ]);
     }
   }
+
+  public function updateProfile()
+  {
+    // update there
+  }
 }
