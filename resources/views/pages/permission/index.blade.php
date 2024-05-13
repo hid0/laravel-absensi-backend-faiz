@@ -28,7 +28,7 @@
               <div class="card-header">
                 <h4>Permission Data</h4>
               </div>
-              {{-- <div class="card-body">
+              <div class="card-body">
                 <div class="clearfix mb-3"></div>
                 <div class="table-responsive">
                   <table class="table table-striped table-bordered table-hover">
@@ -36,22 +36,24 @@
                       <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Date</th>
-                        <th scope="col">Time In</th>
-                        <th scope="col">Time Out</th>
-                        <th scope="col">LatLong In</th>
-                        <th scope="col">LatLong Out</th>
+                        <th scope="col">Reason</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Is Approve</th>
                         <th scope="col">#</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($attendances as $data)
+                      @foreach ($permissions as $data)
                         <tr>
                           <td>{{ $data->user->name }}</td>
-                          <td>{{ $data->date }}</td>
-                          <td> {{ $data->time_in }}</td>
-                          <td> {{ $data->time_out }}</td>
-                          <td>{{ $data->latlon_in }}</td>
-                          <td>{{ $data->latlon_out }}</td>
+                          <td>{{ $data->date_permission }}</td>
+                          <td> {{ $data->reason }}</td>
+                          <td><img width="50" class="rounded" src="{{ $data->image }}" alt=""></td>
+                          <td>
+                            {!! $data->is_approve == 'true'
+                                ? '<a href="#" class="badge badge-success">Disetujui</a>'
+                                : '<a href="#" class="badge badge-danger">Belum Disetujui</a>' !!}
+                          </td>
                           <td>
                           </td>
                         </tr>
@@ -60,9 +62,9 @@
                   </table>
                 </div>
                 <div class="float-right">
-                  {{ $attendances->withQueryString()->links() }}
+                  {{ $permissions->withQueryString()->links() }}
                 </div>
-              </div> --}}
+              </div>
             </div>
           </div>
         </div>

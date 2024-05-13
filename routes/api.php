@@ -20,5 +20,5 @@ Route::middleware(['auth:api'])->group(function () {
 
     Route::post('/is-checkin', [\App\Http\Controllers\Api\AttendanceController::class, 'isCheckedIn'])->name('checkedin.api');
 
-    // Route::
+    Route::post('/update-profile', [\App\Http\Controllers\Api\AuthController::class, 'updateProfile'])->name('update.profile.api');
 });

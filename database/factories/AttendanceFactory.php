@@ -19,7 +19,6 @@ class AttendanceFactory extends Factory
     {
         $user = User::where('name', 'Faiz Hidayatulloh')->first();
         return [
-            // 'user_id' => uuid_create(),
             'user_id' => $user->id,
             'date' => $this->faker->date(),
             'time_in' => $this->faker->time(),

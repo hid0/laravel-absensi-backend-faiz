@@ -54,8 +54,26 @@ class AuthController extends Controller
     }
   }
 
-  public function updateProfile()
+  public function updateProfile(Request $request)
   {
     // update there
+    $request->validate([
+      'image_url' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+      'face_embedding' => 'required'
+    ]);
+
+    $user = $request->user();
+    $img = $request->file('image_url');
+
+    // save image
+    $img->storeAs('public/images', $img->hashName());
+    $user->image_url = $img->hashName();
+    $user->face_embedding = $request->face_embedding;
+    $user->save();
+
+    return response([
+      'message' => 'Profile Updated!',
+      'data' => $user
+    ], 200);
   }
 }

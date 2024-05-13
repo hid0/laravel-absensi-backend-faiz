@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
+            $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
+            $table->date('date_permission');
+            $table->text('reason');
+            $table->string('image')->nullable();
+            $table->enum('is_approve', ['true', 'false'])->default('false');
             $table->timestamps();
         });
     }

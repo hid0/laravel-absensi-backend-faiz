@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Permission extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'date_permission',
+        'reason',
+        'image',
+        'is_approve',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
